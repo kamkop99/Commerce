@@ -19,6 +19,9 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Build & test (JaCoCo)
+        run: mvn -B clean verify
+
       - name: SonarQube Scan (backend)
         uses: SonarSource/sonarqube-scan-action@v5
         env:
@@ -29,6 +32,7 @@ jobs:
           args: >
             -Dsonar.projectKey=Commerce
             -Dsonar.projectName=Commerce
+            -Dsonar.exclusions=**/*.java
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
       - name: Quality Gate
