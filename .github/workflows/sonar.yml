@@ -6,7 +6,7 @@ on:
 
 jobs:
   backend:
-    runs-on: [self-hosted,windows,portfolio-runner]
+    runs-on: [self-hosted,windows,commerce]
     defaults:
       run:
         working-directory: backend
