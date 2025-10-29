@@ -25,16 +25,9 @@ jobs:
       - name: SonarQube Scan (backend)
         run: |
           mvn -B sonar:sonar \
-          -Dsonar.projectKey=backend \
+          -Dsonar.projectKey=Commerce \
+          -Dsonar.projectName=Commerce \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
           -Dsonar.qualitygate.wait=true
-
-      - name: Quality Gate
-        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          scanMetadataReportFile: target/sonar/report-task.txt
