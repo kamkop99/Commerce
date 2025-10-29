@@ -27,6 +27,7 @@ jobs:
           mvn -B sonar:sonar \
           -Dsonar.projectKey=Commerce \
           -Dsonar.projectName=Commerce \
+          -Dsonar.coverage.exclusions=** \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
