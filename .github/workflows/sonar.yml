@@ -23,7 +23,8 @@ jobs:
         run: mvn -B clean verify
 
       - name: SonarQube Scan (backend)
-        run: mvn -B sonar:sonar \
+        run: |
+          mvn -B sonar:sonar \
           -Dsonar.projectKey=backend \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
