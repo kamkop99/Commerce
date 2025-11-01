@@ -5,8 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  backend:
-    runs-on: [self-hosted,linux,commerce-runner1]
+  sonar-scan:
+    runs-on: [self-hosted,linux,commerce-1]
     defaults:
       run:
         working-directory: backend
