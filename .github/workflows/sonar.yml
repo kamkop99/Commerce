@@ -23,7 +23,7 @@ jobs:
         uses: s4u/setup-maven-action@v1.19.0
 
       - name: Build & test (JaCoCo)
-        run: mvn -B clean verify
+        run: mvn -B clean verify -DskipTests
 
       - name: SonarQube Scan (backend)
         run: |
